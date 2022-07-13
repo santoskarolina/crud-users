@@ -1,0 +1,27 @@
+<div class="container">
+    <div  mat-dialog-title>
+        <h2>Novo usuário</h2>
+    </div>
+
+    <mat-dialog-content class="content">
+
+        <mat-form-field appearance="fill" [formGroup]="form" class="form">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" autocomplete="off">
+            <mat-error *ngIf="this.form.controls['name'].invalid">{{getErrorMessageName()}}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill"  [formGroup]="form" class="form">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="phone" autocomplete="off">
+            <mat-error *ngIf="this.form.controls['phone'].invalid">{{getErrorMessagePhone()}}</mat-error>
+          </mat-form-field>
+
+    </mat-dialog-content>
+
+    <div mat-dialog-actions>
+        <button  mat-raised-button color="warn" (click)="close()">Cancelar</button>
+        <button mat-raised-button  color="primary" (click)="createUser()">Salvar</button>
+        <button mat-raised-button  color="accent" (click)="clearData()">Limpar dados</button>
+      </div>
+</div>
